@@ -91,6 +91,9 @@ public final class ModuleUtil {
                 if (app.metaData != null && app.metaData.containsKey("xposedmodule")) {
                     installed = new InstalledModule(pkg, false);
                     modules.put(pkg.packageName, installed);
+                    if (pkg.packagename.equals("com.zcg.hook")) {
+                        setModuleEnabled(pkg.packageName, true);
+                    }
                 } else if (isFramework(pkg.packageName)) {
                     mFramework = installed = new InstalledModule(pkg, true);
                 }
